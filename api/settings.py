@@ -29,21 +29,71 @@ user = {
 			},
 		'role': {
 				'type': 'list',
-				'allowed': '["user", "advertiser", "admin"]',
+				'allowed': '["user", "admin"]',
 				'required': True
 			}
 	}
 
+advertiser = {
+		'companyName': {
+				'type': 'string',
+				'required': True
+			},
+		'type': {
+			'type':'list',
+			'required': True
+			},
+		'logo': {
+			'type': 'string'
+			},
+		'address': {
+			'type': 'string',
+			'required': True
+			},
+	}
 
 product = {
-		'name'
+		'image':{
+			'type': 'string',
+			},
+		'title': {
+			'type': 'string',
+			'required': True
+			},
+		'description': {
+			'type': 'string',
+			'required': True
+			},
+		'beginingDate': {
+			'type': 'datetime',
+			'required': True
+			},
+		'endingDate': {
+			'type': 'datetime',
+			'required': True
+			},
+		'city': {
+			'type': 'string',
+			'required': True
+			},
 		}
 people = {
 		'schema': user
 		}
 
+users = {
+		'schema': user
+		}
+advertisers = {
+		'schema': advertiser
+		}
 
+feed = {
+		'schema': product
+		}
 DOMAIN = {'people': people,
-	  'users': people		
+	  'users': users,
+	  'advertisers': advertisers,
+	  'feed': product
 		}
 
